@@ -8,7 +8,7 @@ public class GeometricalValue {
     public static void  main (String[] args){
         Scanner sc = new Scanner(System.in);
 
-        int N = 12;
+        int N = 100;
         int a = sc.nextInt()*N;
         int b = sc.nextInt()*N;
         int c = sc.nextInt()*N;
@@ -22,4 +22,5 @@ public class GeometricalValue {
 
     }
 }
+
 
