@@ -28,7 +28,3 @@ public class GeometricalValue {
 
     }
 }
-
-
-
-// (2,-1)
