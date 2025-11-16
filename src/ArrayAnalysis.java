@@ -10,10 +10,10 @@ public class ArrayAnalysis {
 
         String arrFinal = "";
 
-        for (String x : arr1) {
+        for (String x: arr1) {
             boolean found = false;
 
-            for (String y : arr2) {
+            for (String y: arr2) {
                 if (x.equals(y)) {
                     found = true;
                     break;
@@ -24,10 +24,10 @@ public class ArrayAnalysis {
                 arrFinal += x + " ";
             }
         }
-        for (String x : arr2) {
+        for (String x: arr2) {
             boolean found = false;
 
-            for (String y : arr1) {
+            for (String y: arr1) {
                 if (x.equals(y)) {
                     found = true;
                     break;
