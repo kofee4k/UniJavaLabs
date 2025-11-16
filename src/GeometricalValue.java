@@ -9,12 +9,18 @@ public class GeometricalValue {
         Scanner sc = new Scanner(System.in);
 
         int N = 12;
-        int a = sc.nextInt()*N;
-        int b = sc.nextInt()*N;
-        int c = sc.nextInt()*N;
-        int d = sc.nextInt()*N;
-        int e = sc.nextInt()*N;
-        int f = sc.nextInt()*N;
+        String AB = sc.nextLine();
+        String CD = sc.nextLine();
+        String EF = sc.nextLine();
+
+        int a = Integer.parseInt(AB.substring(AB.indexOf("(")+1, AB.indexOf(",")))*N;
+        int b = Integer.parseInt(AB.substring(AB.indexOf(",")+1, AB.indexOf(")")))*N;
+
+        int c = Integer.parseInt(CD.substring(CD.indexOf("(")+1, CD.indexOf(",")))*N;
+        int d = Integer.parseInt(CD.substring(CD.indexOf(",")+1, CD.indexOf(")")))*N;
+
+        int e = Integer.parseInt(EF.substring(EF.indexOf("(")+1, EF.indexOf(",")))*N;
+        int f = Integer.parseInt(EF.substring(EF.indexOf(",")+1, EF.indexOf(")")))*N;
 
         double result = area(a, b, c, d, e, f);
 
@@ -25,3 +31,4 @@ public class GeometricalValue {
 
 
 
+// (2,-1)
