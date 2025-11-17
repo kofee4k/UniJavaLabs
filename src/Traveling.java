@@ -27,7 +27,7 @@ public class Traveling {
                 int money = Integer.parseInt(input);
                 savedMoney += money;
 
-                if (savedMoney >= neededMoney) {
+                if (savedMoney >= neededMoney && !place.equals("")) {
                     System.out.println("Going to " + place);
                     savedMoney -= neededMoney;
                 }

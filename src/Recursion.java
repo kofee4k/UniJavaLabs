@@ -33,7 +33,7 @@ public class Recursion{
             int num = Integer.parseInt(firstPart);
             return average(rest, value + num, count + 1);
         } catch (NumberFormatException e) {
-            return average(rest, value, count); // Пропускаем некорректное значение
+            return average(rest, value, count);
         }
     }
 }
