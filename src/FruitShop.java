@@ -1,50 +1,57 @@
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Map;
 
 public class FruitShop {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = 12;
+        int N = 100;
 
-        String[] fruits = {"apple", "banana", "grapes", "kiwi", "mango", "orange", "plum"};
-        String[] days = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
-        String[] notDiscountDays = {"saturday", "sunday"};
-        Map<String, Double> fruitPrices = Map.ofEntries(
-                Map.entry("apple", 9.99),
-                Map.entry("banana", 11.49),
-                Map.entry("grapes", 15.99),
-                Map.entry("kiwi", 37.99),
-                Map.entry("mango", 39.99),
-                Map.entry("orange", 17.99),
-                Map.entry("plum", 10.98)
-        );
+        double priceApple = 9.99;
+        double priceBanana = 11.49;
+        double priceGrapes = 15.99;
+        double priceKiwi = 37.99;
+        double priceMango = 39.99;
+        double priceOrange = 17.99;
+        double pricePlum = 10.98;
 
-        String pickedFruit = sc.nextLine().toLowerCase();
-        boolean foundF = Arrays.asList(fruits).contains(pickedFruit);
-
-        String pickedDay = sc.nextLine().toLowerCase();
-        boolean foundD = Arrays.asList(days).contains(pickedDay);
-
+        String fruit = sc.nextLine().toLowerCase();
+        String day = sc.nextLine().toLowerCase();
         double mass = Double.parseDouble(sc.nextLine().replace(",", "."));
 
-        if (foundD && foundF){
-            boolean foundDD = Arrays.asList(notDiscountDays).contains(pickedDay);
+        boolean validFruit = fruit.equals("apple") || fruit.equals("banana") ||
+                fruit.equals("grapes") || fruit.equals("kiwi") ||
+                fruit.equals("mango") || fruit.equals("orange") ||
+                fruit.equals("plum");
 
-            if (!foundDD){
-                if (pickedFruit.equals("apple") || pickedFruit.equals("plum")) {
-                    System.out.printf("%.2f", fruitPrices.get(pickedFruit) * N * mass * 0.95);
-                }
-                else {
-                    System.out.printf("%.2f", fruitPrices.get(pickedFruit)*N*mass);
-                }
-            }
-            else {
-                System.out.printf("%.2f", fruitPrices.get(pickedFruit)*N*mass);
-            }
-        }
-        else {
+        boolean validDay = day.equals("monday") || day.equals("tuesday") ||
+                day.equals("wednesday") || day.equals("thursday") ||
+                day.equals("friday") || day.equals("saturday") ||
+                day.equals("sunday");
+
+        if (!validFruit || !validDay) {
             System.out.println("INVALID");
+            return;
         }
+
+        double price = 0;
+
+        if (fruit.equals("apple")) price = priceApple;
+        else if (fruit.equals("banana")) price = priceBanana;
+        else if (fruit.equals("grapes")) price = priceGrapes;
+        else if (fruit.equals("kiwi")) price = priceKiwi;
+        else if (fruit.equals("mango")) price = priceMango;
+        else if (fruit.equals("orange")) price = priceOrange;
+        else if (fruit.equals("plum")) price = pricePlum;
+
+        boolean weekend = day.equals("saturday") || day.equals("sunday");
+
+        double result = price * N * mass;
+
+        if (!weekend) {
+            if (fruit.equals("apple") || fruit.equals("plum")) {
+                result *= 0.95;
+            }
+        }
+
+        System.out.printf("%.2f", result);
     }
 }

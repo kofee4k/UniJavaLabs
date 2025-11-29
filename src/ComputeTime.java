@@ -16,8 +16,10 @@ public class ComputeTime {
         if (timeNew < 0) {
             timeNew += 1440;
         }
+
         int hrsNew = timeNew/60;
         int minsNew = timeNew%60;
         System.out.println(hrsNew + ":" + minsNew);
+        sc.close();
     }
 }

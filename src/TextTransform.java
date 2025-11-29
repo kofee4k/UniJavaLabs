@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class TextTransform {
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
-
         String input = sc.nextLine();
 
         int start = Integer.parseInt(sc.nextLine());
@@ -18,6 +17,9 @@ public class TextTransform {
         System.out.println(resultNums);
         System.out.println(resultChar);
         System.out.println(resultChar.toLowerCase());
-
+        sc.close();
     }
 }
+
+
+

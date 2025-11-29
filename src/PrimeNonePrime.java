@@ -5,7 +5,7 @@ public class PrimeNonePrime{
         Scanner sc = new Scanner(System.in);
 
         int minn = 0, maxx = 0;
-        int state1, state2;
+        int state2;
         boolean check = true;
 
         while (check) {

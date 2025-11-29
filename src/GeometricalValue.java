@@ -8,7 +8,7 @@ public class GeometricalValue {
     public static void  main (String[] args){
         Scanner sc = new Scanner(System.in);
 
-        int N = 12;
+        int N = 100;
         String AB = sc.nextLine();
         String CD = sc.nextLine();
         String EF = sc.nextLine();
@@ -25,6 +25,6 @@ public class GeometricalValue {
         double result = area(a, b, c, d, e, f);
 
         System.out.printf("%.2f%n", result);
-
+        sc.close();
     }
 }
