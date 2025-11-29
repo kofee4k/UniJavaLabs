@@ -9,21 +9,25 @@ public class Traveling {
         int neededMoney = 0;
         int savedMoney = 0;
 
-        while (true) {
+        boolean check = true;
+
+        while (check) {
             input = sc.nextLine();
 
             if (input.toLowerCase().equals("stop")) {
-                break;
+                check = false;
             }
 
-            if (!isNumber(input)) {
+            else if (!isNumber(input)) {
                 place = input;
                 neededMoney = Integer.parseInt(sc.nextLine());
                 if (savedMoney >= neededMoney) {
                     System.out.println("Going to " + place);
                     savedMoney -= neededMoney;
                 }
-            } else {
+            }
+
+            else {
                 int money = Integer.parseInt(input);
                 savedMoney += money;
 
