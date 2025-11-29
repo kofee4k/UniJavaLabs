@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class ArrayAnalysis {
     public static void main(String[] args){
@@ -38,6 +37,6 @@ public class ArrayAnalysis {
                 arrFinal += x + " ";
             }
         }
-        System.out.println(arrFinal);
+        System.out.println(arrFinal.trim());
     }
 }
