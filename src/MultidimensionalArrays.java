@@ -1,31 +1,40 @@
 import java.util.Scanner;
 
 public class MultidimensionalArrays {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int R = Integer.parseInt(sc.nextLine());
-        int C = Integer.parseInt(sc.nextLine());
-        int N = 1;
+        int C = Integer.parseInt(sc.nextLine());;
         int k = 0;
-        int first = (11+R+C-1)*N;
+        int first = 10 + R + C;
 
-        String Array = "";
+        int[][] array = new int[R][C];
 
-        System.out.println(ArrayBuilder(R, k, N, C, first, Array));
+        arrayBuilder(array, R, C, k, first);
+        printArray(array, R, C);
+
+        sc.close();
     }
-    public static String ArrayBuilder(int R, int k, int N, int C, int firstNum, String Array){
-        for (int i = 0; i<C; i++){
-            Array += firstNum - N*i + " ";
+    public static void arrayBuilder(int[][] array, int R, int C, int k, int firstNum) {
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                array[i][j] = firstNum - j;
+            }
+            firstNum -= 1;
         }
-        k += 1;
-        if (k < R){
-            firstNum -= N;
-            Array += "\n";
-            return ArrayBuilder(R, k, N, C, firstNum, Array);
-        }
-        else{
-            return Array.trim();
+    }
+    public static void printArray(int[][] array, int R, int C) {
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                String arrayPrnt = array[i][j] + " ";
+                if (j == C-1){
+                    arrayPrnt = array[i][j] + "";
+                }
+                System.out.print(arrayPrnt);
+            }
+            System.out.println();
         }
     }
 }
+

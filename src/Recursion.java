@@ -5,7 +5,8 @@ public class Recursion{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String text = sc.nextLine();
-        System.out.println(average(text, 0, 0));
+        double avg = average(text, 0, 0);
+        System.out.println(avg);
     }
 
     public static double average(String text, int value, int count) {
