@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Floors {
+public class FloorGame {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         char[][][] map = {
@@ -28,66 +28,63 @@ public class Floors {
                         {'O', 'O', 'O', 'O', 'O', 'O'},
                         {'O', 'O', 'O', 'O', 'O', 'O'},
                 }
-            };
+        };
 
+        int level = 0, row = 0, col = 0;
+        int newRow, newCol;
+        printMap(map, level);
+        System.out.println("--=--=--=--");
+        boolean check = true;
+        while(true){
+            String move_add = sc.nextLine();
+            move_add = move_add.replace(" ", "");
+            for (char move: move_add.toCharArray()){
+                newCol = col;
+                newRow = row;
 
-        int level, row, col;
-        level = 0;
-        row = 0;
-        col = 0;
-        while(true) {
-            printMap(map, level);
-            char move = sc.nextLine().charAt(0);
-            move = Character.toLowerCase(move);
+                switch (move){
+                    case 'w': newRow--; break;
+                    case 's': newRow++; break;
+                    case 'd': newCol++; break;
+                    case 'a': newCol--; break;
+                    default:
+                        System.out.println("Неправильный ввод");
+                        continue;
+                }
 
-            int newCol = col;
-            int newRow = row;
+                if(newCol < 0 || newCol >= map[level][0].length || newRow < 0 || newRow >= map[level].length || map[level][newRow][newCol] == 'B'){
+                    System.out.println("Нельзя пройти дальше");
+                    continue;
+                }
+                if(map[level][newRow][newCol] == 'L'){
+                    level++;
+                }
 
-            switch (move) {
-                case 'd':
-                    newCol++; break;
-                case 'a':
-                    newCol--; break;
-                case 'w':
-                    newRow--; break;
-                case 's':
-                    newRow++; break;
-                default:
-                    System.out.println("Неверный ввод");
-                    continue;}
+                map[level][row][col] = 'O';
 
-            if (newRow<0 || newRow >= map[level].length || newCol < 0 || newCol >= map[level][0].length)
-                continue;
-            if (map[level][newRow][newCol] == 'B'){
-                System.out.println("Невозмождно выполнить ход, впереди стена");
-                continue;}
+                if(map[level][newRow][newCol] == 'F'){
+                    System.out.println("Победа!");
+                    check = false;
+                    break;
+                }
 
-            map[level][row][col] = 'O';
-
-            if (map[level][newRow][newCol] == 'L')
-                level++;
-
-            row = newRow;
-            col = newCol;
-
-            if (map[level][row][col] == 'F'){
-                printMap(map, level);
-                System.out.println("Победа!");
-                break;
+                row = newRow;
+                col = newCol;
+                map[level][row][col] = 'P';
             }
-
-            map[level][row][col] = 'P';
-
+            if(check == false)
+                break;
+            printMap(map, level);
+            System.out.println("--=--=--=--");
         }
     }
-    static void printMap(char[][][] map, int level) {
-        System.out.println("\nЭтаж " + level);
-        for (int i = 0; i < map[level].length; i++) {
-            for (int j = 0; j < map[level][i].length; j++) {
+    static void printMap(char[][][] map, int level){
+        System.out.printf("Текущий уровень: " + level + '\n');
+        for(int i = 0; i < map[level].length; i++){
+            for(int j = 0; j < map[level][i].length; j++){
                 System.out.print(map[level][i][j] + " ");
             }
             System.out.println();
         }
     }
 }
-
