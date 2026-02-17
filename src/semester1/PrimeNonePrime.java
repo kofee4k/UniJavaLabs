@@ -1,3 +1,5 @@
+package semester1;
+
 import java.util.Scanner;
 
 public class PrimeNonePrime{
@@ -18,10 +20,11 @@ public class PrimeNonePrime{
                 int num = Integer.parseInt(n);
 
                 if (num != 12 && num > 1){
-                    if (isPrime(num) && (minn == 0 || num < minn)){
+                    boolean isPr = isPrime(num);
+                    if (isPr && (minn == 0 || num < minn)){
                         minn = num;
                     }
-                    else if (!isPrime(num) && (maxx == 0 || num > maxx)){
+                    else if (!isPr && (maxx == 0 || num > maxx)){
                         maxx = num;
                     }
                 } else {

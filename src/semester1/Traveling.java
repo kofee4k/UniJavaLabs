@@ -1,3 +1,5 @@
+package semester1;
+
 import java.util.Scanner;
 
 public class Traveling {
@@ -13,12 +15,11 @@ public class Traveling {
 
         while (check) {
             input = sc.nextLine();
-
+            boolean isNum = isNumber(input);
             if (input.toLowerCase().equals("stop")) {
                 check = false;
             }
-
-            else if (!isNumber(input)) {
+            else if (!isNum) {
                 place = input;
                 neededMoney = Integer.parseInt(sc.nextLine());
                 if (savedMoney >= neededMoney) {

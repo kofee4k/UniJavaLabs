@@ -1,3 +1,5 @@
+package semester1;
+
 import java.util.Scanner;
 
 public class ArrayOfNumbers {
@@ -38,9 +40,6 @@ public class ArrayOfNumbers {
             catch (NumberFormatException e){
                 System.out.println("Please, try again");
             }
-
         }
-
-
     }
 }
