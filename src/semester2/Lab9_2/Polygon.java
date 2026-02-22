@@ -1,0 +1,65 @@
+package semester2.Lab9_2;
+
+public class Polygon {
+    protected Integer[] sides;
+
+    protected boolean hasInvalidSides() {
+        if (sides == null || sides.length < 3)
+            return true;
+
+        for (int side : sides) {
+            if (side < 1)
+                return true;
+        }
+
+        for (int i = 0; i < sides.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < sides.length; j++) {
+                if (i != j)
+                    sum += sides[j];
+            }
+            if (sides[i] >= sum)
+                return true;
+        }
+
+        return false;
+    }
+
+    public Polygon(Integer[] sides) {
+        this.sides = sides;
+    }
+
+    public int getSideCount() {
+        return sides.length;
+    }
+
+    public int getPerimeter() {
+        int sum = 0;
+        for (int side : sides) {
+            sum += side;
+        }
+        return sum;
+    }
+
+    public boolean isCorrectSide(Integer side) {
+        return side != null && side > 0;
+    }
+
+    public boolean isCorrectPolygon(Integer[] sides) {
+        if (sides == null || sides.length < 3)
+            return false;
+
+        for (Integer side : sides) {
+            if (!isCorrectSide(side))
+                return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        if (hasInvalidSides())
+            return "Invalid value. Try again";
+        return "Polygon contains " + sides.length + "\n" + "Its perimeter is " + getPerimeter();
+    }
+}
