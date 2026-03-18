@@ -5,22 +5,15 @@ public class Boat extends Vehicle {
 
     public void setOars(int oars) {
         if (oars < 0) {
-            System.out.println("Invalid negative number! Argument: oars count");
-            return;
+            throw new Error("Invalid negative number! Argument: oars count");
         }
         else if (oars == 0){
-            System.out.println("Need oars to swim!");
-            return;
+            throw new Error("Need oars to swim!");
         }
         else if (this.passengers*2 < oars){
-            System.out.println("One too many oars!");
-            return;
+            throw new Error("One too many oars!");
         }
         this.oars = oars;
-    }
-
-    public int getOars() {
-        return oars;
     }
 
     @Override

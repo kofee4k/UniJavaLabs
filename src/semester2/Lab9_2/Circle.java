@@ -3,6 +3,9 @@ package semester2.Lab9_2;
 public class Circle extends Polygon {
     public Circle(Integer[] sides) {
         super(sides);
+        if (!isCircle()){
+            throw new IllegalArgumentException("Invalid value. Try again");
+        }
     }
 
     public double getArea() {
@@ -17,9 +20,6 @@ public class Circle extends Polygon {
     }
     @Override
     public String toString() {
-        if (!isCircle())
-            return "Invalid value. Try again";
-
         int r = sides[0];
 
         return "Circle radius is " + r + "\n" +

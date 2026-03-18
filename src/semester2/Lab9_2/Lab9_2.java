@@ -7,7 +7,7 @@ public class Lab9_2{
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose figure:");
+        System.out.println("Выберите фигуру:");
         System.out.println("1 - Triangle");
         System.out.println("2 - IsoscelesTriangle");
         System.out.println("3 - EquilateralTriangle");
@@ -19,7 +19,7 @@ public class Lab9_2{
         int choice = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Enter sides (space separated):");
+        System.out.println("Введите стороны:");
         String input = scanner.nextLine();
 
         String[] parts = input.split(" ");
@@ -31,38 +31,73 @@ public class Lab9_2{
 
         switch (choice) {
             case 1:
-                Triangle t = new Triangle(sides);
-                System.out.println(t);
+                try {
+                    Triangle t = new Triangle(sides);
+                    System.out.println(t);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 2:
-                IsoscelesTriangle it = new IsoscelesTriangle(sides);
-                System.out.println(it);
+                try {
+                    IsoscelesTriangle it = new IsoscelesTriangle(sides);
+                    System.out.println(it);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 3:
-                EquilateralTriangle et = new EquilateralTriangle(sides);
-                System.out.println(et);
+                try {
+                    EquilateralTriangle et = new EquilateralTriangle(sides);
+                    System.out.println(et);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 4:
-                Quadrilateral q = new Quadrilateral(sides);
-                System.out.println(q);
+                try {
+                    Quadrilateral q = new Quadrilateral(sides);
+                    System.out.println(q);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 5:
-                Parallelogram p = new Parallelogram(sides);
-                System.out.println(p);
+                try {
+                    Parallelogram p = new Parallelogram(sides);
+                    System.out.println(p);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 6:
-                Rhombus r = new Rhombus(sides);
-                System.out.println(r);
+                try {
+                    Rhombus r = new Rhombus(sides);
+                    System.out.println(r);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             case 7:
-                Circle c = new Circle(sides);
-                System.out.println(c);
+                try{
+                    Circle c = new Circle(sides);
+                    System.out.println(c);
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
                 break;
 
             default:
