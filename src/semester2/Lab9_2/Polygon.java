@@ -27,6 +27,9 @@ public class Polygon {
 
     public Polygon(Integer[] sides) {
         this.sides = sides;
+        if (hasInvalidSides()){
+            throw new IllegalArgumentException("Invalid value. Try again");
+        }
     }
 
     public int getSideCount() {
@@ -41,25 +44,8 @@ public class Polygon {
         return sum;
     }
 
-    public boolean isCorrectSide(Integer side) {
-        return side != null && side > 0;
-    }
-
-    public boolean isCorrectPolygon(Integer[] sides) {
-        if (sides == null || sides.length < 3)
-            return false;
-
-        for (Integer side : sides) {
-            if (!isCorrectSide(side))
-                return false;
-        }
-        return true;
-    }
-
     @Override
     public String toString() {
-        if (hasInvalidSides())
-            return "Invalid value. Try again";
         return "Polygon contains " + sides.length + "\n" + "Its perimeter is " + getPerimeter();
     }
 }

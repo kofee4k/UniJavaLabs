@@ -3,6 +3,9 @@ package semester2.Lab9_2;
 public class Rhombus extends Parallelogram {
     public Rhombus(Integer[] sides) {
         super(sides);
+        if (!isRhombus()){
+            throw new IllegalArgumentException("Invalid value. Try again");
+        }
     }
 
     public boolean isRhombus() {
@@ -13,8 +16,6 @@ public class Rhombus extends Parallelogram {
     }
     @Override
     public String toString() {
-        if (!isRhombus())
-            return "Invalid value. Try again";
         return "Rhombus contains " + getSideCount() + " equal sides\n" +
                 "Its perimeter is " + getPerimeter();
     }

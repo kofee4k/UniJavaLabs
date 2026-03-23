@@ -4,6 +4,9 @@ public class Triangle extends Polygon {
 
     public Triangle(Integer[] sides) {
         super(sides);
+        if (!isTriangle()){
+            throw new IllegalArgumentException("Invalid value. Try again");
+        }
     }
 
     public double getInRadius() {
@@ -28,8 +31,6 @@ public class Triangle extends Polygon {
     }
     @Override
     public String toString() {
-        if (!isTriangle())
-            return "Invalid value. Try again";
         return "Triangle contains " + getSideCount() + " sides\n" +
                 "Its perimeter is " + getPerimeter() + "\n" +
                 "Its radius of incircle is " + getInRadius();

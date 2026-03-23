@@ -5,17 +5,12 @@ public class Vehicle {
 
     public void setPassengers(int passengers) {
         if (passengers < 0) {
-            System.out.println("Invalid negative number! Argument: passengers");
-            return;
+            throw new Error("Invalid negative number! Argument: passengers");
         }
         else if (passengers == 0){
-            System.out.println("Need passengers to drive!");
-            return;
+            throw new Error("Need passengers to drive!");
         }
         this.passengers = passengers;
     }
 
-    public int getPassengers() {
-        return passengers;
-    }
 }

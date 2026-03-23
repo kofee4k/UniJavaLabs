@@ -3,6 +3,9 @@ package semester2.Lab9_2;
 public class Parallelogram extends Quadrilateral {
     public Parallelogram(Integer[] sides) {
         super(sides);
+        if (!isParallelogram()){
+            throw new IllegalArgumentException("Invalid value. Try again");
+        }
     }
 
     public boolean isParallelogram() {
@@ -12,8 +15,6 @@ public class Parallelogram extends Quadrilateral {
     }
     @Override
     public String toString() {
-        if (!isParallelogram())
-            return "Invalid value. Try again";
         return "Parallelogram contains two pairs of parallel sides\n" +
                 "Its perimeter is " + getPerimeter();
     }
