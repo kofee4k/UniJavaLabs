@@ -3,7 +3,7 @@ package semester2.Lab9_2;
 public class Circle extends Polygon {
     public Circle(Integer[] sides) {
         super(sides);
-        if (!isCircle()){
+        if (!isCircle(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
@@ -13,7 +13,7 @@ public class Circle extends Polygon {
         return Math.PI * radius * radius;
     }
 
-    public boolean isCircle() {
+    public static boolean isCircle(Integer[] sides) {
         return sides != null &&
                 sides.length == 1 &&
                 sides[0] >= 1;

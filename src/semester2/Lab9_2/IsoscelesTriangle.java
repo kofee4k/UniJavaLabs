@@ -3,12 +3,12 @@ package semester2.Lab9_2;
 public class IsoscelesTriangle extends Triangle {
     public IsoscelesTriangle(Integer[] sides) {
         super(sides);
-        if (!isIsoscelesTriangle()){
+        if (!isIsoscelesTriangle(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
 
-    public boolean isIsoscelesTriangle() {
+    public static boolean isIsoscelesTriangle(Integer[] sides) {
         return sides[0].equals(sides[1]) ||
                 sides[0].equals(sides[2]) ||
                 sides[1].equals(sides[2]);

@@ -3,12 +3,12 @@ package semester2.Lab9_2;
 public class EquilateralTriangle extends IsoscelesTriangle {
     public EquilateralTriangle(Integer[] sides) {
         super(sides);
-        if (!isEquilateralTriangle()){
+        if (!isEquilateralTriangle(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
 
-    public boolean isEquilateralTriangle() {
+    public static boolean isEquilateralTriangle(Integer[] sides) {
         return sides[0].equals(sides[1]) &&
                 sides[1].equals(sides[2]);
     }

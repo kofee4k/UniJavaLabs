@@ -3,12 +3,12 @@ package semester2.Lab9_2;
 public class Parallelogram extends Quadrilateral {
     public Parallelogram(Integer[] sides) {
         super(sides);
-        if (!isParallelogram()){
+        if (!isParallelogram(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
 
-    public boolean isParallelogram() {
+    public static boolean isParallelogram(Integer[] sides) {
         return sides.length == 4 &&
                 sides[0].equals(sides[2]) &&
                 sides[1].equals(sides[3]);

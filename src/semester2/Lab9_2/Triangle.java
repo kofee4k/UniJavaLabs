@@ -4,7 +4,7 @@ public class Triangle extends Polygon {
 
     public Triangle(Integer[] sides) {
         super(sides);
-        if (!isTriangle()){
+        if (!isTriangle(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
@@ -19,7 +19,7 @@ public class Triangle extends Polygon {
         return area / p;
     }
 
-    public boolean isTriangle() {
+    public static boolean isTriangle(Integer[] sides) {
         if (sides.length != 3)
             return false;
 

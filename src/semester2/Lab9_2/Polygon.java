@@ -3,7 +3,7 @@ package semester2.Lab9_2;
 public class Polygon {
     protected Integer[] sides;
 
-    protected boolean hasInvalidSides() {
+    protected static boolean hasInvalidSides(Integer[] sides) {
         if (sides == null || sides.length < 3)
             return true;
 
@@ -27,7 +27,7 @@ public class Polygon {
 
     public Polygon(Integer[] sides) {
         this.sides = sides;
-        if (hasInvalidSides()){
+        if (hasInvalidSides(sides)){
             throw new IllegalArgumentException("Invalid value. Try again");
         }
     }
