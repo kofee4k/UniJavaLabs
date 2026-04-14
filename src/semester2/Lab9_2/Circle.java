@@ -2,10 +2,11 @@ package semester2.Lab9_2;
 
 public class Circle extends Polygon {
     public Circle(Integer[] sides) {
-        super(sides);
-        if (!isCircle(sides)){
+        super(new Integer[]{1, 1, 1});
+        if (!isCircle(sides)) {
             throw new IllegalArgumentException("Invalid value. Try again");
         }
+        this.sides = sides;
     }
 
     public double getArea() {
