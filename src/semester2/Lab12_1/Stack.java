@@ -1,31 +1,30 @@
-package semester2.Lab12_1;
-
 public class Stack implements LIFO {
-    private static class Node {
-        Integer data;
-        Node next;
 
-        Node(Integer data) {
-            this.data = data;
-        }
-    }
-
-    private Node top;
+    private Integer[] data;
     private int size;
+
+    public Stack(int capacity) {
+        data = new Integer[capacity];
+    }
 
     @Override
     public void push(Integer item) {
-        Node node = new Node(item);
-        node.next = top;
-        top = node;
+        if (size == data.length) {
+            Integer[] newData = new Integer[data.length * 2];
+            for (int i = 0; i < data.length; i++) {
+                newData[i] = data[i];   
+            }
+            data = newData;             
+        }
+        data[size] = item;
         size++;
     }
 
     @Override
     public Integer pop() {
-        if (top == null) return null;
-        Integer value = top.data;
-        top = top.next;
+        if (size == 0) return null;
+        Integer value = data[size - 1];
+        data[size - 1] = null;         
         size--;
         return value;
     }
