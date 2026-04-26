@@ -25,7 +25,6 @@ public class Main {
                     System.out.println(dict);
                 }
             } else if (input.startsWith("pop ")) {
-                // "pop [abbreviation]"
                 String abbr = input.substring(4).trim();
                 if (!dict.containsKey(abbr)) {
                     System.out.println("Ошибка: аббревиатура не найдена");
