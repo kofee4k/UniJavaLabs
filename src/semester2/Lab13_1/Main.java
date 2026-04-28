@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         HashMap<String, String> dict = new HashMap<>();
-        while (scanner.hasNextLine()) {
+        while (true) {
             String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("stop")) {
                 break;

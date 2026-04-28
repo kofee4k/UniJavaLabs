@@ -1,3 +1,5 @@
+package semester2.Lab12_1;
+
 public class Stack implements LIFO {
 
     private Integer[] data;
